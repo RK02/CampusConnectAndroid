@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_id": "campusconnect-efb59",
+    "project_number": "893077546719",
+    "name": "CampusConnect"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893077546719:android:18ffd0f3ff777710",
+        "client_id": "android:com.campusconnect",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.campusconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-71737999-1"
+          }
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

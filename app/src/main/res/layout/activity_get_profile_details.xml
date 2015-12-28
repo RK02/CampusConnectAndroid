@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/signup_back"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:padding="12dp"
+        android:background="@drawable/edittext_rounded"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/student_alumini_switch_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/et_name">
+        <TextView
+            android:id="@+id/switch_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#f5b256"
+            android:text="Student"/>
+        <Switch
+            android:id="@+id/student_alumini_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:thumb="@drawable/customswitchselector"
+            android:track="@drawable/custom_track"
+            android:layout_toRightOf="@+id/switch_student"
+            android:checked="false" />
+        <TextView
+            android:id="@+id/switch_alumini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#f5b256"
+            android:layout_toRightOf="@+id/student_alumini_switch"
+            android:text="Alumini"/>
+    </RelativeLayout>
+
+
+
+    <EditText
+        android:id="@+id/et_branch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student_alumini_switch_group"
+        android:hint="Branch"
+        android:background="@drawable/edittext_rounded"
+        android:layout_marginTop="5dp"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/et_batch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_branch"
+        android:hint="Batch"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_rounded"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/et_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_batch"
+        android:hint="Location"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_rounded"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/et_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_location"
+        android:hint="Company"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_rounded"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/b_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/et_company"
+        android:layout_marginTop="10dp"
+        android:text="CONTINUE"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

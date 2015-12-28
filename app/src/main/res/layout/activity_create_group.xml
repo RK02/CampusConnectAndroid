@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eaebec">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/custom_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:background="#383838"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:id="@+id/cross_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/cross" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70">
+
+                    <TextView
+                        android:id="@+id/tv_create_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Create Group"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"></TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:gravity="center">
+
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/group_icon_group"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@+id/custom_toolbar"
+                android:background="@mipmap/upload"
+                android:scaleType="centerCrop"
+                android:gravity="center_vertical" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/group_icon_group"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+              <!--  <EditText
+                    android:id="@+id/et_group_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:hint="Group Type"
+                    android:padding="10dp"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"
+                    android:textSize="14sp" />-->
+
+                <Spinner
+                    android:id="@+id/spin_group_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:background="@drawable/edittext_rounded"
+                    android:spinnerMode="dropdown" />
+
+
+
+                <EditText
+                    android:id="@+id/et_group_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spin_group_type"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:hint="Group Name"
+                    android:padding="10dp"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_group_abbreviation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_group_name"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:hint="Group Abbreviation"
+                    android:padding="10dp"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_group_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_group_abbreviation"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittext_rounded"
+                    android:gravity="top|left"
+                    android:hint="Group Description"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:padding="10dp"
+                    android:singleLine="false"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/et_createGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#383838"
+        android:gravity="center"
+        android:text="Create Group"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+</RelativeLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaebec">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/group_select_when_posting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_rounded"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_group_name_selected_when_posting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Group"
+                    android:textColor="#383838"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_downarrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="80dp"
+                    android:layout_toRightOf="@+id/tv_group_name_selected_when_posting"
+                    android:src="@mipmap/down_arrow" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_upload"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:layout_below="@+id/group_select_when_posting"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/upload" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_below="@+id/iv_upload">
+                <EditText
+                    android:id="@+id/et_post_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_rounded"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:hint="Title"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"/>
+                <EditText
+                    android:id="@+id/et_post_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_post_title"
+                    android:background="@drawable/edittext_rounded"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:hint="Description"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"
+                    android:gravity="top|left"
+                    android:singleLine="false"
+                    android:lines="5"
+                    android:inputType="textMultiLine"/>
+                <LinearLayout
+                    android:id="@+id/start_date_time_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/et_post_description"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/et_start_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/edittext_rounded"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:hint="Start Date"
+                        android:textColor="#383838"
+                        android:textColorHint="#a0a0a0"/>
+                    <TextView
+                        android:id="@+id/et_start_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_rounded"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:hint="Start Time"
+                        android:textColor="#383838"
+                        android:textColorHint="#a0a0a0"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/end_date_time_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/start_date_time_group"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/et_end_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/edittext_rounded"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:hint="End Date"
+                        android:textColor="#383838"
+                        android:textColorHint="#a0a0a0"/>
+                    <TextView
+                        android:id="@+id/et_end_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_rounded"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:hint="End Time"
+                        android:textColor="#383838"
+                        android:textColorHint="#a0a0a0"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_venue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/end_date_time_group"
+                    android:background="@drawable/edittext_rounded"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:hint="Venue"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"/>
+                <EditText
+                    android:id="@+id/et_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_venue"
+                    android:background="@drawable/edittext_rounded"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:hint="Tags"
+                    android:textColor="#383838"
+                    android:textColorHint="#a0a0a0"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/b_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#383838"
+        android:gravity="center"
+        android:text="POST"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</RelativeLayout>

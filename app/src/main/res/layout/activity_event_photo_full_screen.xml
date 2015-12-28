@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gesture-image="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center">
+    <com.campusconnect.utility.PinchZoom.GestureImageView
+        android:id="@+id/iv_event_photo_fs"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
+        android:src="@mipmap/dance"
+        android:scaleType="centerInside"
+        gesture-image:min-scale="0.1"
+        gesture-image:max-scale="10.0"
+        gesture-image:strict="false"/>
+
+</RelativeLayout>

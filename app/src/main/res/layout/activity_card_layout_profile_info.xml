@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_info_card"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="false"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    card_view:cardElevation="0dp"
+    card_view:cardMaxElevation="0dp"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/profile_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eaebec"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.campusconnect.utility.CircularImageView
+                xmlns:app="http://schemas.android.com/tools"
+                android:id="@+id/profile_image"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile"
+                app:border_color="#383838"
+                app:border_width="3dp" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:gravity="center"
+                android:text="Aayush Agarwal"
+                android:paddingTop="8dp"
+                android:textColor="#383838"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/profile_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_name"
+                android:gravity="center"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"
+                android:paddingTop="6dp"
+                android:textColor="#383838"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:id="@+id/profile_extra_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/profile_tag"
+                android:weightSum="2">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.9">
+                    <TextView
+                        android:id="@+id/tv_batch_of"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="20dp"
+                        android:paddingTop="16dp"
+                        android:textColor="#383838"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/tv_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tv_batch_of"
+                        android:layout_below="@+id/tv_batch_of"
+                        android:paddingTop="5dp"
+                        android:textColor="#383838"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2">
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.9">
+                    <TextView
+                        android:id="@+id/tv_branch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:paddingTop="16dp"
+                        android:textColor="#383838"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/tv_random"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tv_branch"
+                        android:layout_below="@+id/tv_branch"
+                        android:paddingTop="5dp"
+                        android:textColor="#383838"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/iv_gmail_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/profile_extra_info"
+                    android:src="@mipmap/gmail" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_groups_joined_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_info"
+            android:background="#ffffff"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:gravity="center"
+            android:text="Groups Joined"
+            android:textColor="#383838"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tv_groups_not_joined_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_groups_joined_text"
+            android:visibility="gone"
+            android:background="#ffffff"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:gravity="center"
+            android:text="Join Some Groups"
+            android:textColor="#383838"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

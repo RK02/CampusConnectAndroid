@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/request_card"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="5dp"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    card_view:cardElevation="0dp"
+    card_view:cardMaxElevation="0dp"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:padding="8dp">
+
+            <com.campusconnect.utility.CircularImageView
+                xmlns:app="http://schemas.android.com/tools"
+                android:id="@+id/profile_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/custom_toolbar"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_profile"
+                app:border_width="0dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.4"
+            android:background="#ffffff"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aayush wants to create club."
+                android:textColor="#383838"
+                android:textSize="16sp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/rl_description"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/tv_request">
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description:"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:textColor="#383838"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/rl_more_description"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/rl_description">
+                <TextView
+                    android:id="@+id/tv_about_club"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Text Description"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:textColor="#383838"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/b_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_black"
+                android:layout_toRightOf="@+id/b_accept"
+                android:layout_below="@+id/rl_more_description"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Reject"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/b_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_black"
+                android:layout_below="@+id/rl_more_description"
+                android:layout_alignLeft="@+id/rl_more_description"
+                android:layout_marginTop="6dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Accept"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

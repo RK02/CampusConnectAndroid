@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/carbonColor"
+        android:elevation="2dp"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Calendar"
+            android:textColor="#f6f6f6"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <com.campusconnect.slidingtab.SlidingTabLayout_Calendar
+        android:id="@+id/tabs_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/custom_toolbar"
+        android:background="#3f3f3f"
+        android:elevation="2dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_cal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs_calendar"
+        android:layout_weight="1"
+        android:background="@android:color/white" />
+
+
+</RelativeLayout>
