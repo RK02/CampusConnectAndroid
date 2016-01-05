@@ -1,5 +1,6 @@
 package com.campusconnect.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -337,6 +338,7 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("ValidFragment")
     public class FragmentPostNews extends Fragment {
         RelativeLayout group_name_post;
         TextView group_selected_text_post;
@@ -661,6 +663,7 @@ public class CreatePostActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ValidFragment")
     public class FragmentPostEvent extends Fragment {
 
         RelativeLayout group_name_post;

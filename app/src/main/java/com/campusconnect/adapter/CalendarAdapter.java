@@ -287,7 +287,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                     if (flag_attending_clicked.get(pos_for_going)) {
                         if (flag_news.get(pos_for_going)) {
                             going.setImageResource(R.mipmap.heart);
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
 
                             dataBase.saveFeedInfo(calList.get(pos_for_going).getPid(), "0");
                         } else {
@@ -310,7 +310,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                     } else {
                         if (flag_news.get(pos_for_going)) {
                             going.setImageResource(R.mipmap.heart_selected);
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
 
                             dataBase.saveFeedInfo(calList.get(pos_for_going).getPid(), "1");
                         } else {
@@ -340,7 +340,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                     int pos_for_share = getAdapterPosition();
                     Intent i = new Intent(android.content.Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    String shareBody = "Title : " + calList.get(pos_for_share).getTitle() + "\n" + "Description : " + calList.get(pos_for_share).getDescription() + " for more info visit http://campusconnect.cc/";
+                    String shareBody = "Title : " + calList.get(pos_for_share).getTitle() + "\n" + "Description : " + calList.get(pos_for_share).getDescription() + " Download the app now from visit bit.ly/campusconnectandroid";
 //                    String shareBody = myFeedList.get(pos_for_share).getTitle() + "/n" + myFeedList.get(posi).getDescription();
                     i.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                     v.getContext().startActivity(Intent.createChooser(i, "Share via"));

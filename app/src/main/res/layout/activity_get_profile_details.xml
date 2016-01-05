@@ -49,7 +49,7 @@
             android:layout_centerVertical="true"
             android:textColor="#f5b256"
             android:layout_toRightOf="@+id/student_alumini_switch"
-            android:text="Alumini"/>
+            android:text="Alumni"/>
     </RelativeLayout>
 
 

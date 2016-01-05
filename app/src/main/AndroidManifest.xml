@@ -56,7 +56,11 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.UpdateActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
             <!--
             <intent-filter>
@@ -65,7 +69,6 @@
             </intent-filter>
             -->
 
-        </activity>
         <activity
             android:name=".activity.CreateGroupActivity"
             android:label="@string/app_name"

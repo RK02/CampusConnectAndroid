@@ -156,10 +156,10 @@ public class InEventActivity extends AppCompatActivity {
                 e.printStackTrace();
                 Picasso.with(InEventActivity.this).load(R.mipmap.default_image).into(event_photo);
             }
-            SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = null;
             try {
-                date = inFormat.parse(bean.getTimeStamp());
+                date = inFormat.parse(bean.getStart_date());
                 Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
                 calendar.setTime(date);
 
@@ -211,7 +211,7 @@ public class InEventActivity extends AppCompatActivity {
                     if (flag_news) {
                         going.setImageResource(R.mipmap.heart);
                         dataBase.saveFeedInfo(bean.getPid(), "0");
-                        Toast.makeText(InEventActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(InEventActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
                     } else {
                         going.setImageResource(R.mipmap.going);
                         dataBase.saveFeedInfo(bean.getPid(), "0");
@@ -233,7 +233,7 @@ public class InEventActivity extends AppCompatActivity {
                     if (flag_news) {
                         dataBase.saveFeedInfo(bean.getPid(), "1");
                         going.setImageResource(R.mipmap.heart_selected);
-                        Toast.makeText(InEventActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(InEventActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
                     } else {
                         dataBase.saveFeedInfo(bean.getPid(), "1");
                         going.setImageResource(R.mipmap.going_selected);

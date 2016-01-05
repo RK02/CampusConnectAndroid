@@ -48,5 +48,6 @@ public class WebServiceDetails {
 	public static final int PID_GET_SUPER_ADMIN_REQUESTS=24;
 	public static final int PID_GROUP_CREATE=25;
 	public static final int PID_GET_ADMIN_STATUS=26;
+	public static final int PID_GET_UPDATE_STATUS=27;
 
 }

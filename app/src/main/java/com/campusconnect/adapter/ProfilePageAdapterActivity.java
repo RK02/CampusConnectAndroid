@@ -67,7 +67,7 @@ public class ProfilePageAdapterActivity extends
             if (GroupsJoinedList.size() > 0 && GroupsJoinedList.size()!=1) {
                 holder2 = (GroupsJoinedListHolder) groupViewHolder;
                 Log.d("ProfilePageAdapter",String.valueOf(i));
-                holder2.group_joined.setText(this.GroupsJoinedList.get(i).getAbb());
+                holder2.group_joined.setText(this.GroupsJoinedList.get(i-1).getAbb());
             }
         }
     }

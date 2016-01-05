@@ -251,7 +251,7 @@ public class CollegeMyFeedAdapter extends
                     if (flag_attending_clicked.get(pos_for_going)) {
                         if (flag_news.get(pos_for_going)) {
                             going.setImageResource(R.mipmap.heart);
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                             dataBase.saveFeedInfo(myFeedList.get(pos_for_going).getPid(), "0");
                         } else {
                             dataBase.saveFeedInfo(myFeedList.get(pos_for_going).getPid(), "0");
@@ -271,7 +271,7 @@ public class CollegeMyFeedAdapter extends
                         flag_attending_clicked.set(pos_for_going, false);
                     } else {
                         if (flag_news.get(pos_for_going)) {
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                             going.setImageResource(R.mipmap.heart_selected);
                             dataBase.saveFeedInfo(myFeedList.get(pos_for_going).getPid(), "1");
                         } else {
@@ -302,7 +302,7 @@ public class CollegeMyFeedAdapter extends
                     int pos_for_share = getAdapterPosition();
                     Intent i = new Intent(android.content.Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    String shareBody = "Title : " + myFeedList.get(pos_for_share).getTitle() + "\n" + "Description : " + myFeedList.get(pos_for_share).getDescription() + " for more info visit http://campusconnect.cc/";
+                    String shareBody = "Title : " + myFeedList.get(pos_for_share).getTitle() + "\n" + "Description : " + myFeedList.get(pos_for_share).getDescription() + " Download the app now from visit bit.ly/campusconnectandroid";
 
 //                    String shareBody = myFeedList.get(pos_for_share).getTitle() + "/n" + myFeedList.get(posi).getDescription();
                     i.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);

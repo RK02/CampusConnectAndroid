@@ -205,7 +205,7 @@ public class campusFeedAdapter extends BaseAdapter {
                 if (flag_attending_clicked.get(pos_for_going)) {
                     if (flag_news.get(pos_for_going)) {
                         holder.going.setImageResource(R.mipmap.heart);
-                        Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                     } else {
                         holder.going.setImageResource(R.mipmap.going);
 
@@ -225,7 +225,7 @@ public class campusFeedAdapter extends BaseAdapter {
                 } else {
                     if (flag_news.get(pos_for_going)) {
                         holder.going.setImageResource(R.mipmap.heart_selected);
-                        Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                     } else {
                         holder.going.setImageResource(R.mipmap.going_selected);
 

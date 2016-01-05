@@ -1,5 +1,6 @@
 package com.campusconnect.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -118,6 +119,9 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
     static public ArrayList<GroupBean> groupList = new ArrayList<GroupBean>();
     public static ArrayList<CampusFeedBean> campusFeedList = new ArrayList<CampusFeedBean>();
     public static ArrayList<CampusFeedBean> myFeedList = new ArrayList<CampusFeedBean>();
+    public static ArrayList<String> campusFeedIDList = new ArrayList<String>();
+    public static ArrayList<String> myFeedIDList = new ArrayList<String>();
+
     public String personalCompleted = "";
     public String campusCompleted = "";
     private PubSubHelper mPubSubHelper;
@@ -163,7 +167,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             String views = innerObj.optString("views");
                                             String photo = innerObj.optString("photoUrl");
                                             String clubid = innerObj.optString("club_id");
-                                            String pid = innerObj.optString("pid");
+                                            String id = innerObj.optString("id");
                                             String timeStamp = innerObj.optString("timestamp");
                                             String title = innerObj.optString("title");
                                             String collegeId = innerObj.optString("collegeId");
@@ -175,7 +179,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             bean.setDescription(description);
                                             bean.setViews(views);
                                             bean.setClubid(clubid);
-                                            bean.setPid(pid);
+                                            bean.setPid(id);
 
                                             bean.setPhoto(photo);
                                             bean.setTimeStamp(timeStamp);
@@ -237,7 +241,11 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             bean.setTag(tagList);
 
 
-                                            myFeedList.add(bean);
+                                            if(!(myFeedIDList.contains(bean.getPid()))){
+                                                myFeedList.add(bean);
+                                                myFeedIDList.add(bean.getPid());
+                                            }
+
                                         }
                                       /*  tn = new CollegeMyFeedAdapter(myFeedList
                                                 , getActivity());*/
@@ -255,7 +263,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             }
                                             editor.commit();
                                         }
-                                        WebApiGetGroups();
+                                        //WebApiGetGroups();
                                         MainActivity.isLaunch = false;
 //                                            }
                                     }
@@ -266,9 +274,11 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                         if (MainActivity.isLaunch) {
                                             WebApiGetGroups();
                                         }
+
+                                        tv_show_personal.setVisibility(View.VISIBLE);
+
                                     }
                                     // Toast.makeText(getActivity(), "Follow interesting groups to create your feed!", Toast.LENGTH_SHORT).show();
-                                    tv_show_personal.setVisibility(View.VISIBLE);
 
 
                                 }
@@ -295,6 +305,8 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                 campusCompleted = campusFeedObj.optString("completed");
 
                                 if (campusFeedObj.has("items")) {
+                                    tv_show_campusFeed.setVisibility(View.GONE);
+
                                     JSONArray campusArry = campusFeedObj.optJSONArray("items");
                                     if (campusArry.length() > 0) {
                                         for (int i = 0; i < campusArry.length(); i++) {
@@ -306,7 +318,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             String views = innerObj.optString("views");
                                             String photo = innerObj.optString("photoUrl");
                                             String clubid = innerObj.optString("club_id");
-                                            String pid = innerObj.optString("id");
+                                            String id = innerObj.optString("id");
                                             String timeStamp = innerObj.optString("timestamp");
                                             String title = innerObj.optString("title");
                                             String collegeId = innerObj.optString("collegeId");
@@ -318,7 +330,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                             bean.setDescription(description);
                                             bean.setViews(views);
                                             bean.setClubid(clubid);
-                                            bean.setPid(pid);
+                                            bean.setPid(id);
 
                                             bean.setPhoto(photo);
                                             bean.setTimeStamp(timeStamp);
@@ -377,8 +389,13 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                                 e.printStackTrace();
                                             }
                                             bean.setTag(tagList);
+
+                                            if(!(campusFeedIDList.contains(bean.getPid()))){
+                                                campusFeedList.add(bean);
+                                                campusFeedIDList.add(bean.getPid());
+                                            }
                                             //End of getting data here
-                                            campusFeedList.add(bean);
+
                                         }
 
                                         cf.notifyDataSetChanged();
@@ -390,8 +407,9 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                                         }
                                     }
                                 } else {
-                                    tv_show_campusFeed.setVisibility(View.VISIBLE);
-                                    // Toast.makeText(getActivity(), "Create posts to create your campus feed!", Toast.LENGTH_SHORT).show();
+                                    if(indexCollegeFeed==1) {
+                                        //tv_show_campusFeed.setVisibility(View.VISIBLE);
+                                    }// Toast.makeText(getActivity(), "Create posts to create your campus feed!", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -807,8 +825,13 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                 Log.e("Home Fragment", url);
                 Log.e("request personal feed", "__________" + jsonObject);
                 checkWebApi = 1;
+                if(index==1){
                 new WebRequestTask(getActivity(), param, _handler, WebRequestTask.POST, jsonObject, WebServiceDetails.PID_GET_PERSONAL_FEED,
                         true, url).execute();
+                }else {
+                    new WebRequestTask(getActivity(), param, _handler, WebRequestTask.POST, jsonObject, WebServiceDetails.PID_GET_PERSONAL_FEED,
+                            false, url).execute();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -835,8 +858,13 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                 Log.e("JSOn String", jsonObject.toString());
                 List<NameValuePair> param = new ArrayList<NameValuePair>();
                 checkWebApi = 2;
-                new WebRequestTask(getActivity(), param, _handler, WebRequestTask.POST, jsonObject, WebServiceDetails.PID_GET_CAMPUS_FEED,
-                        true, url).execute();
+                if(indexCollegeFeed==1) {
+                    new WebRequestTask(getActivity(), param, _handler, WebRequestTask.POST, jsonObject, WebServiceDetails.PID_GET_CAMPUS_FEED,
+                            true, url).execute();
+                }else{
+                    new WebRequestTask(getActivity(), param, _handler, WebRequestTask.POST, jsonObject, WebServiceDetails.PID_GET_CAMPUS_FEED,
+                            false, url).execute();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -959,6 +987,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
 
     }
 
+    @SuppressLint("ValidFragment")
     public class FragmentGroups extends Fragment {
         private static final String LOG_TAG = "FragmentGroups";
         RelativeLayout create_group;
@@ -1049,6 +1078,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
+    @SuppressLint("ValidFragment")
     public class FragmentCampusFeed extends Fragment {
         private static final String LOG_TAG = "FragmentCampusFeed";
         String collegeId;
@@ -1062,6 +1092,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
             String list = SharedpreferenceUtility.getInstance(getActivity()).getString(AppConstants.CAMPUS_FEED_ARRAYLIST);
             try {
                 campusFeedList.clear();
+                campusFeedIDList.clear();
                 ArrayList<CampusFeedBean> arrayList = (ArrayList) ObjectSerializer.deserialize(list);
 
                 if (arrayList == null) {
@@ -1072,10 +1103,14 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                     cf = new CollegeCampusFeedAdapter(campusFeedList, getActivity());
                     college_feed.setAdapter(cf);
                     campusFeedList.clear();
+                    campusFeedIDList.clear();
                 } else {
                     campusFeedList = (ArrayList<CampusFeedBean>) arrayList.clone();
                     cf = new CollegeCampusFeedAdapter(campusFeedList, getActivity());
                     college_feed.setAdapter(cf);
+                    for(int i=0;i<campusFeedList.size();i++){
+                        campusFeedIDList.add(campusFeedList.get(i).getPid());
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1125,6 +1160,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                     swipeRefreshLayout.setRefreshing(false);
                     Toast.makeText(getActivity(), "Refreshing", Toast.LENGTH_LONG).show();
                     campusFeedList.clear();
+                    campusFeedIDList.clear();
                     indexCollegeFeed = 1;
                     webApiCampusFeed(indexCollegeFeed);
 
@@ -1180,6 +1216,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
         return result;
     }
 
+    @SuppressLint("ValidFragment")
     public class FragmentMyFeed extends Fragment {
         // FloatingActionButton fab;
         SwipeRefreshLayout swipeRefreshLayout;
@@ -1194,11 +1231,15 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
             SharedPreferences prefs1 = getActivity().getSharedPreferences("AllPersonalFeeds", Context.MODE_PRIVATE);
             try {
                 myFeedList.clear();
+                myFeedIDList.clear();
                 myFeedList = (ArrayList) ObjectSerializer.deserialize(prefs1.getString(AppConstants.PERSONAL_FEED_ARRAYLIST, ObjectSerializer.serialize(new ArrayList())));
                 if (myFeedList.size() <= 0) {
                     tv_show_personal.setVisibility(View.VISIBLE);
                 } else {
                     tv_show_personal.setVisibility(View.GONE);
+                    for(int i=0;i<myFeedList.size();i++){
+                        myFeedIDList.add(myFeedList.get(i).getPid());
+                    }
                 }
                 tn = new CollegeMyFeedAdapter(
                         myFeedList, getActivity());
@@ -1235,6 +1276,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
             }
             tn.notifyDataSetChanged();
             myFeedList.clear();
+            myFeedIDList.clear();
             //  WebApiGetPersonalFeed(indexMyfeed);
             personal_feed.setOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
@@ -1272,6 +1314,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                     Toast.makeText(getActivity(), "Refreshing", Toast.LENGTH_LONG).show();
                     indexMyfeed = 1;
                     myFeedList.clear();
+                    myFeedIDList.clear();
                     WebApiGetPersonalFeed(indexMyfeed);
                          /*   tn = new CollegeMyFeedAdapter(
                                 createList_cf(10), getActivity());*/
@@ -1363,7 +1406,7 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
                 }
                 fragment = new FragmentCampusFeed();
             } else if (position == 2) {
-//                WebApiGetGroups();
+                WebApiGetGroups();
                 fragment = new FragmentGroups();
             }
             return fragment;

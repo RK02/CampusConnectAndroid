@@ -232,7 +232,7 @@ public class CollegeCampusFeedAdapter extends RecyclerView.Adapter<CollegeCampus
                     if (flag_attending_clicked.get(pos_for_going)) {
                         if (flag_news.get(pos_for_going)) {
                             going.setImageResource(R.mipmap.heart);
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
 
                             dataBase.saveFeedInfo(CollegeFeedList.get(pos_for_going).getPid(), "0");
                         } else {
@@ -256,7 +256,7 @@ public class CollegeCampusFeedAdapter extends RecyclerView.Adapter<CollegeCampus
                     } else {
                         if (flag_news.get(pos_for_going)) {
                             going.setImageResource(R.mipmap.heart_selected);
-                            Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
 
                             dataBase.saveFeedInfo(CollegeFeedList.get(pos_for_going).getPid(), "1");
                         } else {
@@ -286,7 +286,7 @@ public class CollegeCampusFeedAdapter extends RecyclerView.Adapter<CollegeCampus
                     int pos_for_share = getAdapterPosition();
                     Intent i = new Intent(android.content.Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    String shareBody = "Title : " + CollegeFeedList.get(pos_for_share).getTitle() + "\n" + "Description : " + CollegeFeedList.get(pos_for_share).getDescription() + " for more info visit http://campusconnect.cc/";
+                    String shareBody = "Title : " + CollegeFeedList.get(pos_for_share).getTitle() + "\n" + "Description : " + CollegeFeedList.get(pos_for_share).getDescription() + " Download the app now from visit bit.ly/campusconnectandroid";
                     //String shareBody = CollegeFeedList.get(pos_for_share).getTitle() + "/n" + CollegeFeedList.get(posi).getDescription();
                     i.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                     v.getContext().startActivity(Intent.createChooser(i, "Share via"));

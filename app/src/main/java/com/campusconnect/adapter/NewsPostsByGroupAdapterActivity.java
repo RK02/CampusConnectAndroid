@@ -180,12 +180,12 @@ public class NewsPostsByGroupAdapterActivity extends
 
                         dataBase.saveFeedInfo(NewsPostsByGroupList.get(pos_for_going).getPid(), "0");
                         flag_attending_clicked.set(pos_for_going, false);
-                        Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                     } else {
                         like.setImageResource(R.mipmap.heart_selected);
                         dataBase.saveFeedInfo(NewsPostsByGroupList.get(pos_for_going).getPid(), "1");
                         flag_attending_clicked.set(pos_for_going, true);
-                        Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "coming soon", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -196,7 +196,7 @@ public class NewsPostsByGroupAdapterActivity extends
                     int pos = getAdapterPosition();
                     Intent i = new Intent(android.content.Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    String shareBody = "Title : " + NewsPostsByGroupList.get(pos).getTitle() + "\n" + "Description : " + NewsPostsByGroupList.get(posi).getDescription() + "for more info visit http://campusconnect.cc";
+                    String shareBody = "Title : " + NewsPostsByGroupList.get(pos).getTitle() + "\n" + "Description : " + NewsPostsByGroupList.get(posi).getDescription() + " Download the app now from visit bit.ly/campusconnectandroid";
                     i.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                     v.getContext().startActivity(Intent.createChooser(i, "Share via"));
                     int pos_for_share = getAdapterPosition();
