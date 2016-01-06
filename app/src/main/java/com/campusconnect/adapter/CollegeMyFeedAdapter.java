@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -104,8 +105,7 @@ public class CollegeMyFeedAdapter extends
                 college_feedViewHolder.day.setVisibility(View.GONE);
                 college_feedViewHolder.date_month.setVisibility(View.GONE);
                 college_feedViewHolder.time.setVisibility(View.GONE);
-                college_feedViewHolder.news_icon.setVisibility(View.VISIBLE);
-
+                college_feedViewHolder.c_tag.setBackgroundResource(R.drawable.post_tag);
                 flag_news.add(i, true);
 //            dataBase.saveFeedInfo(cf.getPid(), "1");
                 if (dataBase.getFeedIsLike(cf.getPid())) {
@@ -120,7 +120,7 @@ public class CollegeMyFeedAdapter extends
                 college_feedViewHolder.day.setVisibility(View.VISIBLE);
                 college_feedViewHolder.date_month.setVisibility(View.VISIBLE);
                 college_feedViewHolder.time.setVisibility(View.VISIBLE);
-
+                college_feedViewHolder.c_tag.setBackgroundResource(R.drawable.tag);
 
                 SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = null;
@@ -192,6 +192,7 @@ public class CollegeMyFeedAdapter extends
     public class CollegeFeedViewHolder extends RecyclerView.ViewHolder {
 
         CardView college_feed;
+        RelativeLayout c_tag;
         TextView event_title, group_name, timestamp, day, date_month, time;
         ImageView event_photo, news_icon, going, share;
         CircularImageView group_icon;
@@ -214,6 +215,7 @@ public class CollegeMyFeedAdapter extends
             date_month = (TextView) v.findViewById(R.id.tv_date_month);
             time = (TextView) v.findViewById(R.id.tv_time);
             group_icon = (CircularImageView) v.findViewById(R.id.group_image);
+            c_tag = (RelativeLayout) v.findViewById(R.id.card_tag);
 
             event_title.setTypeface(r_med);
             group_name.setTypeface(r_reg);

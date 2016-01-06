@@ -1,6 +1,7 @@
 package com.campusconnect.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusconnect.R;
@@ -33,12 +35,13 @@ import java.util.List;
 public class GetProfileDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button cont;
+    TextView switch_stu, switch_alu;
     EditText et_batch, et_branch, et_name, et_location, et_company;
     Switch sw_student;
     private static final String LOG_TAG = "GetProfileDetails";
 
     private String mEmailAccount = "";
-    private String name = "";
+    private String name = "", batch="", branch="", location="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +55,21 @@ public class GetProfileDetailsActivity extends AppCompatActivity implements View
         et_company = (EditText) findViewById(R.id.et_company);
         et_location = (EditText) findViewById(R.id.et_location);
 
+        switch_stu = (TextView) findViewById(R.id.switch_student);
+        switch_alu = (TextView) findViewById(R.id.switch_alumini);
+
         cont = (Button) findViewById(R.id.b_continue);
 
         name = SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).getString(AppConstants.PERSON_NAME);
+        batch = SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).getString(AppConstants.BATCH);
+        branch = SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).getString(AppConstants.BRANCH);
+        location = SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).getString(AppConstants.COLLEGE_LOCATION);
         mEmailAccount = SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).getString(AppConstants.EMAIL_KEY);
 
         et_name.setText(name);
+        et_batch.setText(batch);
+        et_branch.setText(branch);
+        et_location.setText(location);
 
         sw_student.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -69,10 +81,14 @@ public class GetProfileDetailsActivity extends AppCompatActivity implements View
                     SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).putString(AppConstants.ALUMNI, "N");
                     et_location.setVisibility(View.INVISIBLE);
                     et_company.setVisibility(View.INVISIBLE);
+                    switch_stu.setTextColor(Color.rgb(250, 209, 86));
+                    switch_alu.setTextColor(Color.rgb(160, 160, 160));
                 } else {
                     SharedpreferenceUtility.getInstance(GetProfileDetailsActivity.this).putString(AppConstants.ALUMNI, "Y");
                     et_company.setVisibility(View.VISIBLE);
                     et_location.setVisibility(View.VISIBLE);
+                    switch_alu.setTextColor(Color.rgb(250, 209, 86));
+                    switch_stu.setTextColor(Color.rgb(160, 160, 160));
                 }
 
             }

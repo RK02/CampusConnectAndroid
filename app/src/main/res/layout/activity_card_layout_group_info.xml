@@ -38,8 +38,8 @@
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/default_profile"
-                app:border_color="#FFFFFF"
-                app:border_width="5dp" />
+                app:border_width="1dp"
+                app:border_color="#eaebec" />
 
             <TextView
                 android:id="@+id/group_name"

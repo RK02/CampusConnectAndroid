@@ -11,6 +11,7 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/tv_calendar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

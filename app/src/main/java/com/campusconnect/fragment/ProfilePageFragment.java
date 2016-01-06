@@ -1,6 +1,7 @@
 package com.campusconnect.fragment;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusconnect.R;
@@ -22,6 +24,7 @@ import com.campusconnect.bean.GroupBean;
 import com.campusconnect.database.DatabaseHandler;
 import com.campusconnect.supportClasses.MyScrollListenerProfilePage;
 import com.campusconnect.supportClasses.ProfilePage_infoActivity;
+import com.campusconnect.utility.DividerItemDecoration;
 import com.campusconnect.utility.NetworkAvailablity;
 
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class ProfilePageFragment extends Fragment   {
 
     RecyclerView groups_joined;
     int top=0;
+    TextView profile_title;
     ImageButton noti,profile,home,calendar,search;
     DatabaseHandler db;
     ImageView editImage;
@@ -47,6 +51,10 @@ public class ProfilePageFragment extends Fragment   {
         }
         try {
             mRootView = inflater.inflate(R.layout.activity_profile_page, container, false);
+
+            profile_title = (TextView) mRootView.findViewById(R.id.tv_profile_text);
+            Typeface r_med = Typeface.createFromAsset(mRootView.getContext().getAssets(), "font/Roboto_Medium.ttf");
+            profile_title.setTypeface(r_med);
 
             groups_joined = (RecyclerView)mRootView.findViewById(R.id.recycler_groups);
             editImage = (ImageView)mRootView.findViewById(R.id.ib_create_post);

@@ -13,6 +13,7 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusconnect.R;
@@ -37,6 +38,7 @@ import java.util.List;
 
 public class CalenderFragment extends Fragment {
     public static Typeface r_med, r_reg;
+    TextView calendar_title;
     static ArrayList<CampusFeedBean> calenderList = new ArrayList<CampusFeedBean>();
     CalendarAdapter adapter;
     ViewPager pager;
@@ -68,6 +70,11 @@ public class CalenderFragment extends Fragment {
         }
         try {
             mRootView = inflater.inflate(R.layout.activity_calendar_design_two, container, false);
+
+            calendar_title = (TextView) mRootView.findViewById(R.id.tv_calendar);
+            Typeface r_med = Typeface.createFromAsset(mRootView.getContext().getAssets(), "font/Roboto_Medium.ttf");
+            calendar_title.setTypeface(r_med);
+
             calendar = (RecyclerView) mRootView.findViewById(R.id.rv_calendar);
 
             //getting data for sending to server

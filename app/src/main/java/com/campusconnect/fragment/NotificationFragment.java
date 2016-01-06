@@ -1,5 +1,6 @@
 package com.campusconnect.fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.campusconnect.R;
 import com.campusconnect.adapter.NotificationAdapterActivity;
@@ -35,6 +37,7 @@ public class NotificationFragment extends Fragment {
     RecyclerView notification_list;
     ImageButton noti, profile, home, calendar, search;
     View mRootView;
+    TextView notification_title;
     NotificationAdapterActivity nl;
     ArrayList<NotificationBean> mNotifiList = new ArrayList<>();
 
@@ -49,6 +52,9 @@ public class NotificationFragment extends Fragment {
         try {
             mRootView = inflater.inflate(R.layout.activity_notification, container, false);
 
+            notification_title = (TextView) mRootView.findViewById(R.id.tv_notification);
+            Typeface r_med = Typeface.createFromAsset(mRootView.getContext().getAssets(), "font/Roboto_Medium.ttf");
+            notification_title.setTypeface(r_med);
 
             notification_list = (RecyclerView) mRootView.findViewById(R.id.rv_notification);
             notification_list.setHasFixedSize(true);

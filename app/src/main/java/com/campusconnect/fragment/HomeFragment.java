@@ -1184,8 +1184,8 @@ public class HomeFragment extends Fragment implements GoogleApiClient.Connection
 
 
             tn.notifyDataSetChanged();
-            myFeedList.clear();
-            myFeedIDList.clear();
+            //myFeedList.clear();
+            //myFeedIDList.clear();
 
 
             /*if(indexMyfeed==1){

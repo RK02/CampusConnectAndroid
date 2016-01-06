@@ -137,20 +137,24 @@
                     android:id="@+id/location_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/group_info_group"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="32dp"
                     android:layout_below="@+id/tv_date">
 
                     <ImageView
                         android:id="@+id/iv_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:src="@mipmap/location" />
 
                     <TextView
                         android:id="@+id/tv_venue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/iv_location"
                         android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/iv_location"
                         android:text="Main Building"
                         android:textColor="#383838"

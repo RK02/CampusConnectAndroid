@@ -34,7 +34,8 @@
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@mipmap/roto_logo"
-            app:border_width="0dp" />
+            app:border_width="1dp"
+            app:border_color="#eaebec" />
 
         <TextView
             android:id="@+id/tv_notification"

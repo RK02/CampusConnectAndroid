@@ -1,6 +1,7 @@
 package com.campusconnect.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusconnect.R;
@@ -22,6 +24,7 @@ import com.campusconnect.communicator.WebRequestTask;
 import com.campusconnect.communicator.WebServiceDetails;
 import com.campusconnect.constant.AppConstants;
 import com.campusconnect.database.DatabaseHandler;
+import com.campusconnect.utility.DividerItemDecoration;
 import com.campusconnect.utility.NetworkAvailablity;
 import com.campusconnect.utility.SharedpreferenceUtility;
 
@@ -42,6 +45,7 @@ public class GroupPageActivity extends ActionBarActivity {
     LinearLayout searchLine, calLine, notificationLine, profileLine, homeLine;
 
     RecyclerView group_page;
+    TextView group_page_title;
     String follow;
     DatabaseHandler db;
     private static final String LOG_TAG = "GroupPageActivity";
@@ -49,6 +53,10 @@ public class GroupPageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_page);
+
+        group_page_title = (TextView) findViewById(R.id.tv_group_title);
+        Typeface r_med = Typeface.createFromAsset(getAssets(), "font/Roboto_Medium.ttf");
+        group_page_title.setTypeface(r_med);
 
         search = (ImageButton) findViewById(R.id.ib_search);
         calender = (ImageButton) findViewById(R.id.ib_calendar);
@@ -68,6 +76,7 @@ public class GroupPageActivity extends ActionBarActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         group_page.setLayoutManager(llm);
         group_page.setHasFixedSize(true);
+
         group_page.setItemAnimator(new DefaultItemAnimator());
         GroupBean bean = (GroupBean) getIntent().getSerializableExtra("BEAN");
         try {

@@ -144,7 +144,7 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:gravity="center"
-            android:text="Groups Joined"
+            android:text="Groups Following"
             android:textColor="#383838"
             android:textSize="16sp" />
         <TextView
@@ -157,7 +157,7 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:gravity="center"
-            android:text="Join Some Groups"
+            android:text="Follow Some Groups"
             android:textColor="#383838"
             android:textSize="16sp" />
     </RelativeLayout>

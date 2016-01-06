@@ -1,11 +1,13 @@
 package com.campusconnect.fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.campusconnect.R;
 import com.campusconnect.bean.NotificationBean;
@@ -18,6 +20,7 @@ public class SearchFragment extends Fragment  {
 
    // ImageButton noti,profile,home,calendar,search;
    View  mRootView;
+    TextView search_title;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +33,9 @@ public class SearchFragment extends Fragment  {
         try {
             mRootView = inflater.inflate(R.layout.activity_search, container, false);
 
+            search_title = (TextView) mRootView.findViewById(R.id.tv_search);
+            Typeface r_med = Typeface.createFromAsset(mRootView.getContext().getAssets(), "font/Roboto_Medium.ttf");
+            search_title.setTypeface(r_med);
 
 
 

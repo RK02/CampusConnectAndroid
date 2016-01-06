@@ -26,7 +26,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Follow interesting groups to create your feed"
+                android:text="Swipe to refresh or follow interesting groups to create your feed"
                 android:textSize="20sp"
                 android:visibility="gone" />
 

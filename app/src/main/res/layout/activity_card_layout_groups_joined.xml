@@ -5,6 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clickable="true"
+
+    android:layout_marginTop="2dp"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
     card_view:cardElevation="0dp"
@@ -38,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="16dp"
             android:src="@mipmap/arrow_right" />
     </RelativeLayout>
