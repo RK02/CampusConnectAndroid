@@ -22,6 +22,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import static com.campusconnect.R.drawable.default_profile;
+
 
 /**
  * Created by RK on 11-09-2015.
@@ -53,7 +55,13 @@ public class ProfilePageAdapterActivity extends
             holder1 = (ProfileInfoViewHolder) groupViewHolder;
             //Log.d("name",SharedpreferenceUtility.getInstance(context).getString(AppConstants.PERSON_NAME));
             String url = SharedpreferenceUtility.getInstance(context).getString(AppConstants.PHOTO_URL);
-            Picasso.with(context).load(url).into(profile_image);
+            Log.d("URL",url);
+            try{
+                Picasso.with(context).load(url).into(profile_image);
+            }catch(IllegalArgumentException e){
+                //profile_image.setImageDrawable(default_profile);
+                e.printStackTrace();
+            }
             profile_name.setText(SharedpreferenceUtility.getInstance(context).getString(AppConstants.PERSON_NAME));
             tv_branch.setText(SharedpreferenceUtility.getInstance(context).getString(AppConstants.BRANCH));
             tv_batch_of.setText(SharedpreferenceUtility.getInstance(context).getString(AppConstants.BATCH));
@@ -166,5 +174,4 @@ public class ProfilePageAdapterActivity extends
             no_grps_heading= (TextView) itemView.findViewById(R.id.tv_groups_not_joined_text);
         }
     }
-
 }

@@ -158,28 +158,32 @@ public class InEventActivity extends AppCompatActivity {
             }
             SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = null;
-            try {
-                date = inFormat.parse(bean.getStart_date());
-                Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-                calendar.setTime(date);
-
-
-                SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
-                String goal = outFormat.format(date);
-                Log.e("day", goal);
-                //  Log.e("entry", cf.getStartDate());
-                SimpleDateFormat monthFormat = new SimpleDateFormat("MMMMMMMM");
-                String month = monthFormat.format(date);
-                Log.e("month", month);
-
-                SimpleDateFormat dateformate = new SimpleDateFormat("dd");
-                String dayFormate = monthFormat.format(date);
-                Log.e("day", "" + calendar.get(Calendar.DAY_OF_MONTH));
-                String day = "" + calendar.get(Calendar.DAY_OF_MONTH);
-                e_date.setText("" + goal + " " + day + " " + month);
-            } catch (Exception e) {
+            try{
+                if(flag_news){
+                    date = inFormat.parse(bean.getTimeStamp());
+                }else{
+                    date = inFormat.parse(bean.getStart_date());
+                }
+            }catch(Exception e){
                 e.printStackTrace();
             }
+            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+            calendar.setTime(date);
+
+
+            SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
+            String goal = outFormat.format(date);
+            Log.e("day", goal);
+            //  Log.e("entry", cf.getStartDate());
+            SimpleDateFormat monthFormat = new SimpleDateFormat("MMMMMMMM");
+            String month = monthFormat.format(date);
+            Log.e("month", month);
+
+            SimpleDateFormat dateformate = new SimpleDateFormat("dd");
+            String dayFormate = monthFormat.format(date);
+            Log.e("day", "" + calendar.get(Calendar.DAY_OF_MONTH));
+            String day = "" + calendar.get(Calendar.DAY_OF_MONTH);
+            e_date.setText("" + goal + " " + day + " " + month);
 
         }
 //Extract the data…
