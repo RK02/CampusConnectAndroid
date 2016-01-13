@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
         android:layout_height="match_parent"
-        android:src="@mipmap/dance"
+        android:src="@drawable/default_card_image"
         android:scaleType="centerInside"
         gesture-image:min-scale="0.1"
         gesture-image:max-scale="10.0"

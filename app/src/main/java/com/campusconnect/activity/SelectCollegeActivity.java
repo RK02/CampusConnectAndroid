@@ -53,12 +53,13 @@ public class SelectCollegeActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         college_list.setLayoutManager(llm);
-        tv_not_found= (TextView) findViewById(R.id.tv_not_found);
+        tv_not_found= (TextView) findViewById(R.id.tv_college_not_found);
         college_list.setItemAnimator(new DefaultItemAnimator());
 
         tv_not_found.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                     Log.d("SelectClgActivity", "Clicked on not found");
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://campusconnect.cc/"));
                 startActivity(browserIntent);

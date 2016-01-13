@@ -35,6 +35,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Group Name"
+                android:layout_toLeftOf="@+id/tv_follow"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="25dp"
                 android:textColor="#383838"
                 android:textSize="18sp" />
 
