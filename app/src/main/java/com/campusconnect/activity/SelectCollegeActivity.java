@@ -1,5 +1,7 @@
 package com.campusconnect.activity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +14,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +25,9 @@ import com.campusconnect.adapter.CollegeListAdapterActivity;
 import com.campusconnect.bean.CollegeListInfoBean;
 import com.campusconnect.communicator.WebRequestTask;
 import com.campusconnect.communicator.WebServiceDetails;
+import com.campusconnect.constant.AppConstants;
 import com.campusconnect.utility.NetworkAvailablity;
+import com.campusconnect.utility.SharedpreferenceUtility;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
@@ -61,8 +68,11 @@ public class SelectCollegeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                     Log.d("SelectClgActivity", "Clicked on not found");
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://campusconnect.cc/"));
-                startActivity(browserIntent);
+
+                CollegeNotFoundDialog getdetailsDialog = new CollegeNotFoundDialog((Activity) v.getContext());
+                Window window = getdetailsDialog.getWindow();
+                window.setLayout(450, ViewGroup.LayoutParams.WRAP_CONTENT);
+                getdetailsDialog.show();
                 }
 
         });
@@ -144,6 +154,43 @@ public class SelectCollegeActivity extends AppCompatActivity {
             }
         }
     };
+
+    public class CollegeNotFoundDialog extends Dialog {
+
+        public Activity c;
+        public Dialog d;
+        Context context;
+        Button submit;
+
+
+        public CollegeNotFoundDialog(Activity a) {
+            super(a);
+            // TODO Auto-generated constructor stub
+            this.c = a;
+            this.context = context;
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            setContentView(R.layout.get_details_dialog);
+            submit = (Button) findViewById(R.id.b_submit);
+
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Log.d("SelectClgActivity", "Request for new college details submitted (dummy)");
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://campusconnect.cc/"));
+                    startActivity(browserIntent);
+                }
+
+            });
+        }
+
+    }
 
 
 }
