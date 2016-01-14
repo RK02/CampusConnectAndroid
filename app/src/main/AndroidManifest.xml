@@ -103,6 +103,10 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.ViewProfileActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.FlashActivity"
             android:label="@string/app_name">
             <intent-filter>

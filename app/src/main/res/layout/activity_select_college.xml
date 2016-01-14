@@ -63,7 +63,7 @@
             android:layout_weight="0.8">
         </LinearLayout>
         <TextView
-            android:id="@+id/tv_not_found"
+            android:id="@+id/tv_college_not_found"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

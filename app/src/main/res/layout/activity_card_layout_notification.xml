@@ -33,7 +33,7 @@
             android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/roto_logo"
+            android:src="@mipmap/default_image"
             app:border_width="1dp"
             app:border_color="#eaebec" />
 
