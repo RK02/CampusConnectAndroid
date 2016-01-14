@@ -103,7 +103,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ShowProfileActivity"
+            android:name=".activity.ViewProfileActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity

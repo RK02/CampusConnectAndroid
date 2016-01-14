@@ -44,12 +44,6 @@
             android:layout_height="match_parent"
             android:layout_weight="15"
             android:gravity="center">
-            <ImageButton
-                android:id="@+id/ib_create_post"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#383838"
-                android:src="@mipmap/edit" />
         </LinearLayout>
     </LinearLayout>
 

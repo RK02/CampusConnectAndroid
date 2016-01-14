@@ -1,7 +1,9 @@
 package com.campusconnect.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.campusconnect.R;
+import com.campusconnect.activity.GetProfileDetailsActivity;
+import com.campusconnect.activity.ViewProfileActivity;
 import com.campusconnect.bean.GroupMemberBean;
 import com.campusconnect.utility.CircularImageView;
 import com.squareup.picasso.Picasso;
@@ -62,6 +66,7 @@ public class GroupMembersByGroupAdapterActivity extends
     public static class GroupMembersByGroupViewHolder extends RecyclerView.ViewHolder {
 
         TextView member_name, member_batch, member_branch;
+        CardView member_card;
         CircularImageView member_icon;
 
         public GroupMembersByGroupViewHolder(View v) {
@@ -70,6 +75,7 @@ public class GroupMembersByGroupAdapterActivity extends
             Typeface r_reg = Typeface.createFromAsset(v.getContext().getAssets(), "font/Roboto_Regular.ttf");
             Typeface r_lig = Typeface.createFromAsset(v.getContext().getAssets(), "font/Roboto_Light.ttf");
 
+            member_card = (CardView) v.findViewById(R.id.member_card);
             member_name = (TextView) v.findViewById(R.id.tv_member_name);
             member_branch = (TextView) v.findViewById(R.id.tv_member_branch);
             member_batch = (TextView) v.findViewById(R.id.tv_member_batch);
@@ -77,6 +83,14 @@ public class GroupMembersByGroupAdapterActivity extends
             member_name.setTypeface(r_reg);
             member_batch.setTypeface(r_lig);
             member_branch.setTypeface(r_lig);
+
+            member_card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent viewProfile = new Intent(v.getContext(), ViewProfileActivity.class);
+                    v.getContext().startActivity(viewProfile);
+                }
+            });
 
         }
 
